@@ -1,6 +1,7 @@
 module com.example.projectphase2 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.projectphase2 to javafx.fxml;
