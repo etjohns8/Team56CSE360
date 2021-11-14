@@ -19,18 +19,50 @@ public class HelloController {
     @FXML
     private Button button;
     @FXML
+    private Button newAccount;
+    @FXML
     private Label wrongLogin;
     @FXML
     private TextField username;
     @FXML
     private PasswordField password;
     @FXML
-    private Button selectStaff;
-    @FXML
-    private Button selectPatient;
-    @FXML
     private Label selectionOutput;
 
+    public void createAccount(ActionEvent event) throws IOException{
+        HelloApplication m = new HelloApplication();
+        m.changeScene("RegistrationPage.fxml");
+
+    }
+    public void updatePortal() throws IOException{
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+        String getDoctorStatus = "SELECT isDoctor FROM user_account WHERE username = '" +username.getText() +"'";
+//wrongLogin.setText(getDoctorStatus);
+
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet doctorStatus = statement.executeQuery(getDoctorStatus);
+          while(doctorStatus.next()){
+              currentPortal = doctorStatus.getInt(1);
+              //wrongLogin.setText("Doctor Status: " + currentPortal);
+          }
+
+           /* if(doctorStatus.getInt(1) == 0){
+                wrongLogin.setText("This is A Patient");
+            }else if(doctorStatus.getInt(1) == 0){
+                wrongLogin.setText("This is a Doctor");
+            }
+            */
+
+            //currentPortal = doctorStatus.getInt(1);
+            //wrongLogin.setText("doctor status set to " + doctorStatus.getInt(1));
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
     public void updatePortalSelectionStaff(ActionEvent event) throws IOException{
         selectPortal(1);
     }
@@ -63,20 +95,22 @@ if(selection == 1){
 DatabaseConnection connectNow = new DatabaseConnection();
 Connection connectDB = connectNow.getConnection();
 
+
 String verifyLogin = "SELECT count(1) FROM user_account WHERE username = '" + username.getText() + "' AND password = '" + password.getText() + "'";
         try{
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
 
             while(queryResult.next()){
+                updatePortal();
                 if(queryResult.getInt(1) == 1){
-                    if(currentPortal == 0){
-                        wrongLogin.setText("Please Select A Portal");
+                    if(currentPortal == -1){
+                        wrongLogin.setText("Account Corrupt");
                     }else if(currentPortal == 1){
-                        wrongLogin.setText("Success! Routing to Staff Portal");
+                        //wrongLogin.setText("Success! Routing to Staff Portal");
                         m.changeScene("staff-landing.fxml");
-                    }else if(currentPortal == 2){
-                        wrongLogin.setText("Success! Routing to Patient Portal");
+                    }else if(currentPortal == 0){
+                        //wrongLogin.setText("Success! Routing to Patient Portal");
                         m.changeScene("patient-landing.fxml");
                     }else{
                         wrongLogin.setText("Something went wrong, please restart application");
