@@ -7,6 +7,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 public class HelloController {
@@ -36,7 +39,13 @@ public class HelloController {
     }
 
     public void userLogin(ActionEvent event) throws IOException{
-        validateLogin();
+        if(username.getText().isEmpty() == false && password.getText().isEmpty() == false){
+            wrongLogin.setText("You are attempting to Log In");
+            validateLogin();
+        }
+        else{
+            wrongLogin.setText("Please enter username / password");
+        }
     }
 
     private void selectPortal(int selection){
@@ -50,6 +59,68 @@ if(selection == 1){
     }
 
     private void validateLogin() throws IOException{
+        HelloApplication m = new HelloApplication();
+DatabaseConnection connectNow = new DatabaseConnection();
+Connection connectDB = connectNow.getConnection();
+
+String verifyLogin = "SELECT count(1) FROM user_account WHERE username = '" + username.getText() + "' AND password = '" + password.getText() + "'";
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()){
+                if(queryResult.getInt(1) == 1){
+                    if(currentPortal == 0){
+                        wrongLogin.setText("Please Select A Portal");
+                    }else if(currentPortal == 1){
+                        wrongLogin.setText("Success! Routing to Staff Portal");
+                        m.changeScene("staff-landing.fxml");
+                    }else if(currentPortal == 2){
+                        wrongLogin.setText("Success! Routing to Patient Portal");
+                        m.changeScene("patient-landing.fxml");
+                    }else{
+                        wrongLogin.setText("Something went wrong, please restart application");
+                    }
+                    //wrongLogin.setText("Success!");
+                }else{
+                    wrongLogin.setText("Incorrect username or password");
+                }
+
+            }
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        /*
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String verifyLogin = "SELECT count(1) FROM user_account WHERE username = " + username.getText() + "' AND password = '" + password.getText() + " ' AND";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()){
+                if(queryResult.getInt(1) == 1){
+                    wrongLogin.setText("Success!");
+                }else{
+                    wrongLogin.setText("Incorrect username or password");
+                }
+
+            }
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+*/
+/*
         HelloApplication m = new HelloApplication();
         String correctUsername = "team56";
         String correctPassword = "123";
@@ -76,5 +147,6 @@ if(selection == 1){
             wrongLogin.setText("Incorrect username or password");
 
         }
+ */
     }
 }
