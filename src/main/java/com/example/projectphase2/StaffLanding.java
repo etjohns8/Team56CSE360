@@ -5,8 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.DatePicker;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Statement;
 
 public class StaffLanding {
 
@@ -18,6 +21,18 @@ public class StaffLanding {
     private Button messages;
     @FXML
     private Button newPatient;
+    @FXML
+    private DatePicker dobPicker;
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField contactField;
+    @FXML
+    private TextField insuranceField;
+    @FXML
+    private TextField pharmacyField;
+    @FXML
+    private Label errorMessage;
 
 public void goNewPatient(ActionEvent event) throws  IOException{
     goNewScene("staff-landing.fxml");
@@ -35,5 +50,30 @@ goNewScene("new-checkup.fxml");
     private void goNewScene(String fxml) throws IOException{
         HelloApplication m = new HelloApplication();
         m.changeScene(fxml);
+    }
+
+    public void createPatient(ActionEvent event) throws IOException{
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+if(nameField.getText().isEmpty() == false && dobPicker.getValue() != null && contactField.getText().isEmpty() == false && insuranceField.getText().isEmpty() == false && pharmacyField.getText().isEmpty() == false){
+    try{
+        String inputDBString = "INSERT INTO patient(name, dateofbirth, email, insuranceinfo, pharminfo) VALUES (\"" + nameField.getText() +"\", '" + dobPicker.getValue() +"',\"" + contactField.getText() +"\", \"" + insuranceField.getText() +"\", \"" + pharmacyField.getText() + "\")";
+
+        Statement statement = connectDB.createStatement();
+        statement.execute(inputDBString);
+        //errorMessage.setText("Query Executed Successfully");
+
+
+    }
+    catch(Exception e){
+        e.printStackTrace();
+        e.getCause();
+    }
+
+    errorMessage.setText("Customer Created Successfully");
+}else{
+    errorMessage.setText("All fields are mandatory");
+}
+
     }
 }

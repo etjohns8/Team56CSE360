@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.StaffLanding">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.StaffLanding">
    <children>
       <Label layoutX="196.0" layoutY="14.0" text="Staff Portal">
          <font>
@@ -17,16 +18,17 @@
       <Button fx:id="newCheckup" layoutX="196.0" layoutY="84.0" mnemonicParsing="false" onAction="#goNewCheckup" text="New Checkup" />
       <Button fx:id="editInformation" layoutX="286.0" layoutY="84.0" mnemonicParsing="false" onAction="#goEditInformation" text="View/Edit Information" />
       <Button fx:id="messages" layoutX="418.0" layoutY="84.0" mnemonicParsing="false" onAction="#goMessages" text="Messages" />
-      <TextField fx:id="nameField" layoutX="225.0" layoutY="121.0" />
-      <Label layoutX="182.0" layoutY="125.0" text="Name:" />
-      <TextField fx:id="dobField" layoutX="225.0" layoutY="146.0" />
-      <Label layoutX="148.0" layoutY="150.0" text="Date of Birth:" />
-      <TextField fx:id="contactField" layoutX="225.0" layoutY="171.0" />
-      <Label layoutX="107.0" layoutY="175.0" text="Contact Information:" />
-      <Label layoutX="107.0" layoutY="200.0" text="Insurance Information:" />
-      <TextField fx:id="insuranceField" layoutX="114.0" layoutY="217.0" prefHeight="53.0" prefWidth="326.0" />
-      <Label layoutX="107.0" layoutY="270.0" text="Pharmacy Information:" />
-      <TextField fx:id="pharmacyField" layoutX="113.0" layoutY="287.0" prefHeight="53.0" prefWidth="326.0" />
-      <Button layoutX="273.0" layoutY="340.0" mnemonicParsing="false" text="Submit" />
+      <TextField fx:id="nameField" layoutX="238.0" layoutY="131.0" />
+      <Label layoutX="195.0" layoutY="135.0" text="Name:" />
+      <Label layoutX="161.0" layoutY="160.0" text="Date of Birth:" />
+      <TextField fx:id="contactField" layoutX="238.0" layoutY="181.0" />
+      <Label layoutX="120.0" layoutY="185.0" text="Contact Information:" />
+      <Label layoutX="120.0" layoutY="210.0" text="Insurance Information:" />
+      <TextField fx:id="insuranceField" layoutX="127.0" layoutY="227.0" prefHeight="53.0" prefWidth="326.0" />
+      <Label layoutX="120.0" layoutY="280.0" text="Pharmacy Information:" />
+      <TextField fx:id="pharmacyField" layoutX="126.0" layoutY="297.0" prefHeight="53.0" prefWidth="326.0" />
+      <Button layoutX="286.0" layoutY="350.0" mnemonicParsing="false" onAction="#createPatient" text="Submit" />
+      <DatePicker fx:id="dobPicker" layoutX="239.0" layoutY="156.0" />
+      <Label fx:id="errorMessage" alignment="CENTER" layoutX="116.0" layoutY="109.0" prefHeight="17.0" prefWidth="371.0" textFill="RED" />
    </children>
 </AnchorPane>
