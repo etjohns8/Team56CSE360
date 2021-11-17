@@ -15,6 +15,7 @@ import java.sql.Statement;
 public class HelloController {
 
     private int currentPortal = 0;
+    public static String currentUser;
 
     @FXML
     private Button button;
@@ -108,9 +109,11 @@ String verifyLogin = "SELECT count(1) FROM user_account WHERE username = '" + us
                         wrongLogin.setText("Account Corrupt");
                     }else if(currentPortal == 1){
                         //wrongLogin.setText("Success! Routing to Staff Portal");
+                        currentUser = username.getText();
                         m.changeScene("staff-landing.fxml");
                     }else if(currentPortal == 0){
                         //wrongLogin.setText("Success! Routing to Patient Portal");
+                        currentUser = username.getText();
                         m.changeScene("patient-landing.fxml");
                     }else{
                         wrongLogin.setText("Something went wrong, please restart application");
