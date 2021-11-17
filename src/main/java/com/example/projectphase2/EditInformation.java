@@ -49,13 +49,13 @@ public class EditInformation {
     @FXML
     private TextField bpLowBox;
     @FXML
-    private TextField knownAlg;
+    private TextArea knownAlg;
     @FXML
-    private TextField othIssue;
+    private TextArea othIssue;
     @FXML
-    private TextField docFinds;
+    private TextArea docFinds;
     @FXML
-    private TextField prescMeds;
+    private TextArea prescMeds;
     @FXML
     private Label dateAppt;
     @FXML
@@ -108,6 +108,28 @@ public class EditInformation {
         }
 
     }
+
+    private void pollAndSetArea(String Query, TextArea box){
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+        //String dbQuery = "SELECT name FROM checkups WHERE email= \"" + patientSelection.getValue() +"\"";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(Query);
+
+            while(queryResult.next()){
+                box.setText(queryResult.getString(1));
+                //CheckupSelection.getItems().addAll(queryResult.getInt(1));
+
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
     public void updateFields(ActionEvent event){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -127,13 +149,13 @@ public class EditInformation {
         dbQuery = "SELECT bloodplow FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
         pollAndSet(dbQuery, bpLowBox);
         dbQuery = "SELECT knownalg FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
-        pollAndSet(dbQuery, knownAlg);
+        pollAndSetArea(dbQuery, knownAlg);
         dbQuery = "SELECT otherhealth FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
-        pollAndSet(dbQuery, othIssue);
+        pollAndSetArea(dbQuery, othIssue);
         dbQuery = "SELECT docfinds FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
-        pollAndSet(dbQuery, docFinds);
+        pollAndSetArea(dbQuery, docFinds);
         dbQuery = "SELECT prescmeds FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
-        pollAndSet(dbQuery, prescMeds);
+        pollAndSetArea(dbQuery, prescMeds);
 
         dbQuery = "SELECT date FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
 
