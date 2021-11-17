@@ -88,8 +88,25 @@ public class NewCheckupDoctor {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String inputDBString = "UPDATE checkups SET docfinds = \"" + docFinds.getText() +"\", prescmeds = \"" + preMeds.getText() +"\" WHERE email = \"" + email.getValue() +"\"";
-// If I had more time, I would make it check that the email exists
+        String getmaxID = "SELECT MAX(ID) FROM checkups ";
+        int maxId = 0;
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(getmaxID);
+
+            while(queryResult.next()){
+                maxId = queryResult.getInt(1);
+
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+
+
+        String inputDBString = "UPDATE checkups SET docfinds = \"" + docFinds.getText() +"\", prescmeds = \"" + preMeds.getText() +"\" WHERE ID = \"" + maxId +"\"";
         try{
             Statement statement = connectDB.createStatement();
             statement.execute(inputDBString);

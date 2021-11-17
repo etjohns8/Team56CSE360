@@ -5,9 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -27,8 +25,6 @@ public class EditInformation {
     @FXML
     private Button newCheckup;
     @FXML
-    private Button updateInfo;
-    @FXML
     private Button editInformation;
     @FXML
     private Button messages;
@@ -39,23 +35,120 @@ public class EditInformation {
     @FXML
     private ComboBox CheckupSelection;
     @FXML
+    private TextField nameBox;
+    @FXML
+    private TextField weightBox;
+    @FXML
+    private TextField bTempBox;
+    @FXML
+    private TextField heightFtBox;
+    @FXML
+    private TextField heightInBox;
+    @FXML
+    private TextField bpUpBox;
+    @FXML
+    private TextField bpLowBox;
+    @FXML
+    private TextField knownAlg;
+    @FXML
+    private TextField othIssue;
+    @FXML
+    private TextField docFinds;
+    @FXML
+    private TextField prescMeds;
+    @FXML
+    private Label dateAppt;
+    @FXML
     private Label outputMessage;
     @FXML
     public void initialize() {
        setUpPatients();
     }
 
+
+    private void pollAndSet(String Query, TextField box){
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+        //String dbQuery = "SELECT name FROM checkups WHERE email= \"" + patientSelection.getValue() +"\"";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(Query);
+
+            while(queryResult.next()){
+                box.setText(queryResult.getString(1));
+                //CheckupSelection.getItems().addAll(queryResult.getInt(1));
+
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
+    public void updateFields(ActionEvent event){
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String dbQuery = "SELECT name FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, nameBox);
+        dbQuery = "SELECT weight FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, weightBox);
+        dbQuery = "SELECT bodyTemp FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, bTempBox);
+        dbQuery = "SELECT heightFT FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, heightFtBox);
+        dbQuery = "SELECT heightIN FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, heightInBox);
+        dbQuery = "SELECT bloodpup FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, bpUpBox);
+        dbQuery = "SELECT bloodplow FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, bpLowBox);
+        dbQuery = "SELECT knownalg FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, knownAlg);
+        dbQuery = "SELECT otherhealth FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, othIssue);
+        dbQuery = "SELECT docfinds FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, docFinds);
+        dbQuery = "SELECT prescmeds FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+        pollAndSet(dbQuery, prescMeds);
+
+        dbQuery = "SELECT date FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(dbQuery);
+
+            while(queryResult.next()){
+                dateAppt.setText(queryResult.getString(1));
+                //box.setText(queryResult.getString(1));
+                //CheckupSelection.getItems().addAll(queryResult.getInt(1));
+
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+
+
+    }
     public void updateButton(ActionEvent event){
         if(patientSelection.getValue() != null){
-            outputMessage.setText("Update Attempted");
+            CheckupSelection.getItems().removeAll(CheckupSelection.getItems());
+            //outputMessage.setText("Update Attempted");
             setUpCheckups();
         }else {
-            outputMessage.setText("Update Failed: Please select Patient");
+            //outputMessage.setText("Update Failed: Please select Patient");
         }
     }
 
     private void setUpCheckups(){
         //CheckupSelection.setSelectionModel(null);
+        //CheckupSelection.getItems().
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
         String getDates = "SELECT ID FROM checkups WHERE email= \"" + patientSelection.getValue() +"\"";
@@ -75,7 +168,7 @@ public class EditInformation {
 
     }
     private void setUpPatients(){
-        outputMessage.setText("Options Selected");
+        //outputMessage.setText("Options Selected");
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
