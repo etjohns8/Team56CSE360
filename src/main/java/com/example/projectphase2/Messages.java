@@ -37,6 +37,12 @@ public class Messages {
     public void initialize() {
         setUpSubjects();
     }
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
     private void setUpSubjects(){
         DatabaseConnection connectNow = new DatabaseConnection();

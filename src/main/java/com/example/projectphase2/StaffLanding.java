@@ -29,6 +29,12 @@ public class StaffLanding {
     private TextArea pharmacyField;
     @FXML
     private Label errorMessage;
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
 public void goNewPatient(ActionEvent event) throws  IOException{
     goNewScene("staff-landing.fxml");

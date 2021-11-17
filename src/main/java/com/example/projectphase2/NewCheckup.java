@@ -48,6 +48,12 @@ public class NewCheckup {
     public void initialize() {
         setUpEmails();
     }
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
     public void goNewPatient(ActionEvent event) throws IOException {
         goNewScene("staff-landing.fxml");

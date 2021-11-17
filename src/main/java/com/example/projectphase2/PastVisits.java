@@ -42,6 +42,12 @@ public class PastVisits {
 
     @FXML
     public void initialize() {setUpCheckups();}
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
     private void setUpCheckups(){
         //CheckupSelection.setSelectionModel(null);

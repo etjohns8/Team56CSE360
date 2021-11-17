@@ -23,5 +23,6 @@
       <Button fx:id="submitChanges" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onAction="#processButton" text="Submit Changes" />
       <TextArea fx:id="docFinds" layoutX="122.0" layoutY="153.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
       <TextArea fx:id="preMeds" layoutX="123.0" layoutY="240.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
+      <Button fx:id="logOut" layoutX="514.0" layoutY="57.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
    </children>
 </AnchorPane>

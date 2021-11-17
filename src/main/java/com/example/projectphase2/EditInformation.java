@@ -66,6 +66,12 @@ public class EditInformation {
     public void initialize() {
        setUpPatients();
     }
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
 
     public void editDBwithChanges(ActionEvent event){

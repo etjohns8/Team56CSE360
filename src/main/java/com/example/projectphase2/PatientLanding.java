@@ -57,6 +57,12 @@ public class PatientLanding {
 
         initializeFields();
     }
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
 
     public void submitChangesToDB(ActionEvent event){
