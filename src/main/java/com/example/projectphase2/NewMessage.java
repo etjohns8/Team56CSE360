@@ -14,7 +14,8 @@ import java.sql.Statement;
 
 import static com.example.projectphase2.HelloController.currentUser;
 
-public class Messages {
+public class NewMessage {
+
     String currentUserEmail;
 
     @FXML
@@ -26,37 +27,35 @@ public class Messages {
     @FXML
     private Button newPatient;
     @FXML
-    private Button newMessageButton;
+    private ComboBox selectReciever;
     @FXML
-    private ComboBox subjectSelection;
+    private TextField subjectBox;
     @FXML
-    private TextArea bodyDisplay;
+    private TextArea bodyBox;
     @FXML
-    private TextField senderEmail;
+    private Button sendButton;
     @FXML
     public void initialize() {
-        setUpSubjects();
+        setUpEmails();
     }
 
-    private void setUpSubjects(){
+    private void setUpEmails(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        //String getEmails = "SELECT subject FROM messages WHERE reciever <> '" + currentUser+"'";
+        String getEmails = "SELECT email FROM user_account WHERE username <> '" + currentUser+"'";
         String getCurrentUserEmail = "SELECT email FROM user_account WHERE username = '" + currentUser + "'";
         try{
             Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(getCurrentUserEmail);
+            ResultSet queryResult = statement.executeQuery(getEmails);
 
             while(queryResult.next()){
-                //selectReciever.getItems().addAll(queryResult.getString(1));
-                currentUserEmail = queryResult.getString(1);
+                selectReciever.getItems().addAll(queryResult.getString(1));
 
             }
-            String getSubjects = "SELECT subject FROM messages WHERE reciever = '" + currentUserEmail+"'";
-            queryResult = statement.executeQuery(getSubjects);
+            queryResult = statement.executeQuery(getCurrentUserEmail);
 
             while(queryResult.next()){
-                subjectSelection.getItems().addAll(queryResult.getString(1));
+                currentUserEmail = queryResult.getString(1);
 
             }
         }
@@ -66,36 +65,21 @@ public class Messages {
         }
     }
 
-    public void updateMessageBox(ActionEvent event) throws IOException{
-
+    public void sendMessage(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        //String getEmails = "SELECT subject FROM messages WHERE reciever <> '" + currentUser+"'";
-        String getSelectedMessage = "SELECT body FROM messages WHERE reciever = '" + currentUserEmail + "' AND subject = '" +subjectSelection.getValue() + "'";
-        String getSelectedMessageSender = "SELECT sender FROM messages WHERE reciever = '" + currentUserEmail + "' AND subject = '" +subjectSelection.getValue() + "'";
-
+        String updateQuery = "INSERT INTO messages(sender, reciever, subject, body) VALUES ('" + currentUserEmail+"','" +selectReciever.getValue() +"','" +subjectBox.getText() +"','" +bodyBox.getText() +"')";
 
         try{
             Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(getSelectedMessage);
-
-            while(queryResult.next()){
-                //selectReciever.getItems().addAll(queryResult.getString(1));
-                bodyDisplay.setText(queryResult.getString(1));
-
-            }
-            queryResult = statement.executeQuery(getSelectedMessageSender);
-            while(queryResult.next()){
-                //selectReciever.getItems().addAll(queryResult.getString(1));
-                senderEmail.setText(queryResult.getString(1));
-
-            }
+            statement.execute(updateQuery);
 
         }
         catch(Exception e){
             e.printStackTrace();
             e.getCause();
         }
+        goMessages(event);
     }
 
     public void goNewPatient(ActionEvent event) throws IOException {
@@ -110,9 +94,7 @@ public class Messages {
     public void goMessages(ActionEvent event) throws IOException{
         goNewScene("messages.fxml");
     }
-    public void goNewMessage(ActionEvent event) throws IOException{
-        goNewScene("new-message.fxml");
-    }
+
 
     private void goNewScene(String fxml) throws IOException{
         HelloApplication m = new HelloApplication();
