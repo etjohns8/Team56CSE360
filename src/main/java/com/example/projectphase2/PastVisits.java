@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -35,9 +36,9 @@ public class PastVisits {
     @FXML
     private TextField bPresLowBox;
     @FXML
-    private TextField docFindings;
+    private TextArea docFindings;
     @FXML
-    private TextField prescMeds;
+    private TextArea prescMeds;
 
     @FXML
     public void initialize() {setUpCheckups();}
@@ -104,6 +105,27 @@ public class PastVisits {
         }
 
     }
+    private void pollAndSetArea(String Query, TextArea box){
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+        //String dbQuery = "SELECT name FROM checkups WHERE email= \"" + patientSelection.getValue() +"\"";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(Query);
+
+            while(queryResult.next()){
+                box.setText(queryResult.getString(1));
+                //CheckupSelection.getItems().addAll(queryResult.getInt(1));
+
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
     public void fillBoxes(ActionEvent event){
         String dbQuery = "SELECT weight FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
         pollAndSet(dbQuery, weightBox);
@@ -118,9 +140,9 @@ public class PastVisits {
          dbQuery = "SELECT bloodplow FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
         pollAndSet(dbQuery, bPresLowBox);
          dbQuery = "SELECT docfinds FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
-        pollAndSet(dbQuery, docFindings);
+        pollAndSetArea(dbQuery, docFindings);
          dbQuery = "SELECT prescmeds FROM checkups WHERE ID= \"" + CheckupSelection.getValue() +"\"";
-        pollAndSet(dbQuery, prescMeds);
+        pollAndSetArea(dbQuery, prescMeds);
 
 
     }

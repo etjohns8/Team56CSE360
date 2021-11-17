@@ -1,11 +1,7 @@
 package com.example.projectphase2;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.sql.Connection;
@@ -28,9 +24,9 @@ public class StaffLanding {
     @FXML
     private TextField contactField;
     @FXML
-    private TextField insuranceField;
+    private TextArea insuranceField;
     @FXML
-    private TextField pharmacyField;
+    private TextArea pharmacyField;
     @FXML
     private Label errorMessage;
 

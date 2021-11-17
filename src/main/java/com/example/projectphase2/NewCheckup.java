@@ -2,10 +2,7 @@ package com.example.projectphase2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -40,9 +37,9 @@ public class NewCheckup {
     @FXML
     private TextField bloodPressureLow;
     @FXML
-    private TextField knownAllergies;
+    private TextArea knownAllergies;
     @FXML
-    private TextField otherHealthConcerns;
+    private TextArea otherHealthConcerns;
     @FXML
     private Label outputMessage;
     @FXML
