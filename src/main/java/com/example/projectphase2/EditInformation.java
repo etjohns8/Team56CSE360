@@ -61,11 +61,32 @@ public class EditInformation {
     @FXML
     private Label outputMessage;
     @FXML
+    private Button submitChanges;
+    @FXML
     public void initialize() {
        setUpPatients();
     }
 
 
+    public void editDBwithChanges(ActionEvent event){
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String updateQuery = "UPDATE checkups SET name = '" +nameBox.getText() +"', weight = " +weightBox.getText() +", heightFT=" +heightFtBox.getText() +", heightIN=" +heightInBox.getText() +", bodyTemp=" +bTempBox.getText() +", bloodpup=" + bpUpBox.getText()+", bloodplow=" +bpLowBox.getText() +", knownalg='" +knownAlg.getText() +"', otherhealth='" +othIssue.getText() +"', docfinds='" +docFinds.getText() +"', prescmeds='" +prescMeds.getText() +"' WHERE ID = " +CheckupSelection.getValue() +" ";
+
+
+        try{
+            Statement statement = connectDB.createStatement();
+            statement.execute(updateQuery);
+           // outputMessage.setText("Query Executed Successfully");
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
     private void pollAndSet(String Query, TextField box){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
