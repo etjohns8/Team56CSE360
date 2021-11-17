@@ -27,6 +27,12 @@ public class NewCheckupDoctor {
     private Label outputMessage;
     @FXML
     private Button submitChanges;
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
     //@FXML
     //private ComboBox email;
     //@FXML

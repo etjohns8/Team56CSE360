@@ -62,6 +62,12 @@ public class NewMessagePatient {
             e.getCause();
         }
     }
+    @FXML
+    private Button logOut;
+
+    public void goLogOut(ActionEvent event) throws IOException{
+        goNewScene("hello-view.fxml");
+    }
 
     public void sendMessage(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();

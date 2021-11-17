@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewMessage">
    <children>
       <Button fx:id="newPatient" layoutX="115.0" layoutY="94.0" mnemonicParsing="false" onAction="#goNewPatient" text="New Patient" />
@@ -24,5 +23,6 @@
       <TextField fx:id="subjectBox" layoutX="266.0" layoutY="134.0" prefHeight="25.0" prefWidth="234.0" promptText="Subject" />
       <TextArea fx:id="bodyBox" layoutX="96.0" layoutY="170.0" prefHeight="172.0" prefWidth="410.0" promptText="Body" wrapText="true" />
       <Button fx:id="sendButton" layoutX="254.0" layoutY="355.0" mnemonicParsing="false" onAction="#sendMessage" text="Send Message" />
+      <Button fx:id="logOut" layoutX="514.0" layoutY="57.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
    </children>
 </AnchorPane>

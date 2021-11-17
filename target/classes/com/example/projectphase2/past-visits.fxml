@@ -35,5 +35,6 @@
       <Label layoutX="176.0" layoutY="283.0" text="{low}:" />
       <TextArea fx:id="docFindings" editable="false" layoutX="301.0" layoutY="176.0" prefHeight="56.0" prefWidth="149.0" wrapText="true" />
       <TextArea fx:id="prescMeds" editable="false" layoutX="301.0" layoutY="264.0" prefHeight="56.0" prefWidth="149.0" wrapText="true" />
+      <Button fx:id="logOut" layoutX="504.0" layoutY="47.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
    </children>
 </AnchorPane>

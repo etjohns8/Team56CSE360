@@ -23,5 +23,6 @@
       <ComboBox fx:id="subjectSelection" layoutX="167.0" layoutY="129.0" onAction="#updateMessageBox" prefHeight="25.0" prefWidth="212.0" promptText="Select Message" />
       <TextArea fx:id="bodyDisplay" editable="false" layoutX="67.0" layoutY="167.0" prefHeight="200.0" prefWidth="467.0" promptText="Message body will display here" wrapText="true" />
       <TextField fx:id="senderEmail" editable="false" layoutX="385.0" layoutY="129.0" promptText="Sender Email" />
+      <Button fx:id="logOut" layoutX="514.0" layoutY="57.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
    </children>
 </AnchorPane>
