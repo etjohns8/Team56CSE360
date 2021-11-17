@@ -2,10 +2,7 @@ package com.example.projectphase2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,9 +12,9 @@ import java.sql.Statement;
 public class NewCheckupDoctor {
 
     @FXML
-    private TextField docFinds;
+    private TextArea docFinds;
     @FXML
-    private TextField preMeds;
+    private TextArea preMeds;
     @FXML
     private Button newCheckup;
     @FXML
@@ -30,33 +27,33 @@ public class NewCheckupDoctor {
     private Label outputMessage;
     @FXML
     private Button submitChanges;
-    @FXML
-    private ComboBox email;
-    @FXML
-    public void initialize() {
-        setUpEmails();
-    }
+    //@FXML
+    //private ComboBox email;
+    //@FXML
+    //public void initialize() {
+       // setUpEmails();
+    //}
 
-    private void setUpEmails(){
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.getConnection();
-        String getNames = "SELECT email FROM patient";
+  //  private void setUpEmails(){
+       // DatabaseConnection connectNow = new DatabaseConnection();
+       // Connection connectDB = connectNow.getConnection();
+       // String getNames = "SELECT email FROM patient";
 
-        try{
-            Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(getNames);
+       // try{
+        //    Statement statement = connectDB.createStatement();
+         //   ResultSet queryResult = statement.executeQuery(getNames);
 
-            while(queryResult.next()){
-                email.getItems().addAll(queryResult.getString(1));
+         //   while(queryResult.next()){
+          //      email.getItems().addAll(queryResult.getString(1));
 
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            e.getCause();
-        }
+         //   }
+      //  }
+        //catch(Exception e){
+        //    e.printStackTrace();
+        //    e.getCause();
+      //  }
 
-    }
+  //  }
     public void goNewPatient(ActionEvent event) throws IOException {
         goNewScene("staff-landing.fxml");
     }
@@ -76,7 +73,7 @@ public class NewCheckupDoctor {
     }
 
     public void processButton(ActionEvent event){
-        if(docFinds.getText().isEmpty() == false && preMeds.getText().isEmpty() == false && email.getValue() != null){
+        if(docFinds.getText().isEmpty() == false && preMeds.getText().isEmpty() == false){
             insertIntoDB();
             outputMessage.setText("Checkup Edited Successfully");
 

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewCheckupDoctor">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewCheckupDoctor">
    <children>
       <Button fx:id="newPatient" layoutX="122.0" layoutY="94.0" mnemonicParsing="false" onAction="#goNewPatient" text="New Patient" />
       <Button fx:id="newCheckup" layoutX="203.0" layoutY="94.0" mnemonicParsing="false" onAction="#goNewCheckup" text="New Checkup" />
@@ -19,12 +18,10 @@
          </font>
       </Label>
       <Label fx:id="outputMessage" alignment="CENTER" layoutX="123.0" layoutY="119.0" prefHeight="17.0" prefWidth="369.0" textFill="#e80000" />
-      <TextField fx:id="docFinds" layoutX="122.0" layoutY="155.0" prefHeight="48.0" prefWidth="369.0" />
-      <TextField fx:id="preMeds" layoutX="122.0" layoutY="216.0" prefHeight="70.0" prefWidth="369.0" />
       <Label layoutX="122.0" layoutY="136.0" text="Doctor's Findings" />
-      <Label layoutX="122.0" layoutY="200.0" text="Prescribed Medication" />
-      <Label layoutX="123.0" layoutY="286.0" text="Customer Email:" />
-      <Button fx:id="submitChanges" layoutX="274.0" layoutY="340.0" mnemonicParsing="false" onAction="#processButton" text="Submit Changes" />
-      <ComboBox fx:id="email" layoutX="122.0" layoutY="303.0" prefHeight="25.0" prefWidth="161.0" />
+      <Label layoutX="122.0" layoutY="223.0" text="Prescribed Medication" />
+      <Button fx:id="submitChanges" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onAction="#processButton" text="Submit Changes" />
+      <TextArea fx:id="docFinds" layoutX="122.0" layoutY="153.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
+      <TextArea fx:id="preMeds" layoutX="123.0" layoutY="240.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
    </children>
 </AnchorPane>
