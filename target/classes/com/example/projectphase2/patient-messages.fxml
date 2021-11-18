@@ -8,20 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.PatientMessages">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.PatientMessages">
    <children>
-      <Label layoutX="158.0" layoutY="14.0" text="Patient Portal">
+      <Button fx:id="newMessageButton" layoutX="92.0" layoutY="117.0" mnemonicParsing="false" onAction="#goNewMessagePatient" style="-fx-background-color: radial-gradient(radius 200%, yellow, green,yellow) radial-gradient(radius 200%, yellow, green,yellow);" text="New Message" />
+      <ComboBox fx:id="subjectSelection" layoutX="187.0" layoutY="117.0" onAction="#updateMessageBox" prefHeight="25.0" prefWidth="212.0" promptText="Select Message" />
+      <TextArea fx:id="bodyDisplay" editable="false" layoutX="93.0" layoutY="178.0" prefHeight="135.0" prefWidth="446.0" promptText="Message body will display here" wrapText="true" />
+      <TextField fx:id="senderEmail" editable="false" layoutX="408.0" layoutY="117.0" promptText="Sender Email" />
+      <Label layoutX="191.0" layoutY="9.0" text="Patient Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="patientInformation" layoutX="173.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPatientInformation" text="Patient Information" />
-      <Button fx:id="pastVisits" layoutX="292.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPastVisits" text="Past Visits" />
-      <Button fx:id="patientMessages" layoutX="361.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPatientMessages" text="Messages" />
-      <Button fx:id="newMessageButton" layoutX="59.0" layoutY="121.0" mnemonicParsing="false" onAction="#goNewMessagePatient" text="New Message" />
-      <ComboBox fx:id="subjectSelection" layoutX="158.0" layoutY="121.0" onAction="#updateMessageBox" prefHeight="25.0" prefWidth="212.0" promptText="Select Message" />
-      <TextArea fx:id="bodyDisplay" editable="false" layoutX="58.0" layoutY="159.0" prefHeight="200.0" prefWidth="467.0" promptText="Message body will display here" wrapText="true" />
-      <TextField fx:id="senderEmail" editable="false" layoutX="376.0" layoutY="121.0" promptText="Sender Email" />
-      <Button fx:id="logOut" layoutX="504.0" layoutY="47.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <Button fx:id="patientInformation" layoutX="192.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientInformation" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red) radial-gradient(radius 200%, orange, yellow, red);" text="Patient Information" />
+      <Button fx:id="pastVisits" layoutX="311.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPastVisits" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen);" text="Past Visits" />
+      <Button fx:id="patientMessages" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientMessages" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple) radial-gradient(radius 200%, blue, lightblue, purple);" text="Messages" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green) radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

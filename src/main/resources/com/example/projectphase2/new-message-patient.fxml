@@ -8,20 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewMessagePatient">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewMessagePatient">
    <children>
-      <Label layoutX="168.0" layoutY="24.0" text="Patient Portal">
+      <Label layoutX="191.0" layoutY="9.0" text="Patient Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="patientInformation" layoutX="183.0" layoutY="94.0" mnemonicParsing="false" onAction="#goPatientInformation" text="Patient Information" />
-      <Button fx:id="pastVisits" layoutX="302.0" layoutY="94.0" mnemonicParsing="false" onAction="#goPastVisits" text="Past Visits" />
-      <Button fx:id="patientMessages" layoutX="371.0" layoutY="94.0" mnemonicParsing="false" onAction="#goPatientMessages" text="Messages" />
+      <Button fx:id="patientInformation" layoutX="192.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientInformation" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red) radial-gradient(radius 200%, orange, yellow, red);" text="Patient Information" />
+      <Button fx:id="pastVisits" layoutX="311.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPastVisits" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen);" text="Past Visits" />
+      <Button fx:id="patientMessages" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientMessages" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple) radial-gradient(radius 200%, blue, lightblue, purple);" text="Messages" />
       <ComboBox fx:id="selectReciever" layoutX="105.0" layoutY="129.0" prefHeight="25.0" prefWidth="163.0" promptText="Select Reciever Email" />
       <TextField fx:id="subjectBox" layoutX="277.0" layoutY="129.0" prefHeight="25.0" prefWidth="234.0" promptText="Subject" />
       <TextArea fx:id="bodyBox" layoutX="107.0" layoutY="165.0" prefHeight="172.0" prefWidth="410.0" promptText="Body" wrapText="true" />
-      <Button fx:id="sendButton" layoutX="265.0" layoutY="350.0" mnemonicParsing="false" onAction="#sendMessage" text="Send Message" />
-      <Button fx:id="logOut" layoutX="504.0" layoutY="47.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <Button fx:id="sendButton" layoutX="286.0" layoutY="350.0" mnemonicParsing="false" onAction="#sendMessage" style="-fx-background-color: radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white)radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white)radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white);" text="Send Message" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green) radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -6,23 +6,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewCheckupDoctor">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.NewCheckupDoctor">
    <children>
-      <Button fx:id="newPatient" layoutX="122.0" layoutY="94.0" mnemonicParsing="false" onAction="#goNewPatient" text="New Patient" />
-      <Button fx:id="newCheckup" layoutX="203.0" layoutY="94.0" mnemonicParsing="false" onAction="#goNewCheckup" text="New Checkup" />
-      <Button fx:id="editInformation" layoutX="293.0" layoutY="94.0" mnemonicParsing="false" onAction="#goEditInformation" text="View/Edit Information" />
-      <Button fx:id="messages" layoutX="425.0" layoutY="94.0" mnemonicParsing="false" onAction="#goMessages" text="Messages" />
-      <Label layoutX="203.0" layoutY="24.0" text="Staff Portal">
+      <Label fx:id="outputMessage" alignment="CENTER" layoutX="123.0" layoutY="119.0" prefHeight="17.0" prefWidth="369.0" textFill="#e80000" />
+      <Label layoutX="122.0" layoutY="145.0" text="Doctor's Findings" />
+      <Label layoutX="122.0" layoutY="234.0" text="Prescribed Medication" />
+      <TextArea fx:id="docFinds" layoutX="123.0" layoutY="168.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
+      <TextArea fx:id="preMeds" layoutX="123.0" layoutY="251.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
+      <Button fx:id="submitChanges" layoutX="286.0" layoutY="350.0" mnemonicParsing="false" onAction="#processButton" style="-fx-background-color: radial-gradient(radius 200%, blue, white, green)radial-gradient(radius 200%, blue, white, green);" text="Submit" />
+      <Label layoutX="191.0" layoutY="9.0" text="Staff Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label fx:id="outputMessage" alignment="CENTER" layoutX="123.0" layoutY="119.0" prefHeight="17.0" prefWidth="369.0" textFill="#e80000" />
-      <Label layoutX="122.0" layoutY="136.0" text="Doctor's Findings" />
-      <Label layoutX="122.0" layoutY="223.0" text="Prescribed Medication" />
-      <Button fx:id="submitChanges" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onAction="#processButton" text="Submit Changes" />
-      <TextArea fx:id="docFinds" layoutX="122.0" layoutY="153.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
-      <TextArea fx:id="preMeds" layoutX="123.0" layoutY="240.0" prefHeight="63.0" prefWidth="369.0" wrapText="true" />
-      <Button fx:id="logOut" layoutX="514.0" layoutY="57.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Button fx:id="newPatient" layoutX="73.0" layoutY="80.0" mnemonicParsing="false" onAction="#goNewPatient" prefHeight="28.0" prefWidth="122.0" style="-fx-background-color: radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white)radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Patient" textAlignment="CENTER" />
+      <Button fx:id="newCheckup" layoutX="196.0" layoutY="80.0" mnemonicParsing="false" onAction="#goNewCheckup" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Checkup" textAlignment="CENTER" />
+      <Button fx:id="editInformation" layoutX="306.0" layoutY="80.0" mnemonicParsing="false" onAction="#goEditInformation" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen); -fx-border-color: &quot;black&quot; &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ) dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" styleClass="fx" text="View/Edit Information" />
+      <Button fx:id="messages" layoutX="442.0" layoutY="80.0" mnemonicParsing="false" onAction="#goMessages" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Messages" textAlignment="CENTER">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -14,19 +14,19 @@
       <AnchorPane prefHeight="400.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="625.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="625.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="130.0" layoutY="63.0" text="Pediatric Patient Portal" textFill="WHITE">
+            <Label layoutX="130.0" layoutY="63.0" text="Pediatric Patient Portal">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
-            <Label layoutX="138.0" layoutY="164.0" text="Username:" textFill="WHITE">
+            <Label layoutX="138.0" layoutY="164.0" text="Username:">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="138.0" layoutY="194.0" text="Password:" textFill="WHITE">
+            <Label layoutX="138.0" layoutY="194.0" text="Password:">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
