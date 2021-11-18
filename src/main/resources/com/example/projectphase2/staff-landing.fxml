@@ -8,29 +8,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.StaffLanding">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.StaffLanding">
    <children>
-      <Label layoutX="196.0" layoutY="14.0" text="Staff Portal">
+      <Label layoutX="191.0" layoutY="9.0" text="Staff Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="newPatient" layoutX="115.0" layoutY="84.0" mnemonicParsing="false" onAction="#goNewPatient" text="New Patient" />
-      <Button fx:id="newCheckup" layoutX="196.0" layoutY="84.0" mnemonicParsing="false" onAction="#goNewCheckup" text="New Checkup" />
-      <Button fx:id="editInformation" layoutX="286.0" layoutY="84.0" mnemonicParsing="false" onAction="#goEditInformation" text="View/Edit Information" />
-      <Button fx:id="messages" layoutX="418.0" layoutY="84.0" mnemonicParsing="false" onAction="#goMessages" text="Messages" />
-      <TextField fx:id="nameField" layoutX="238.0" layoutY="131.0" />
-      <Label layoutX="195.0" layoutY="135.0" text="Name:" />
-      <Label layoutX="161.0" layoutY="160.0" text="Date of Birth:" />
-      <TextField fx:id="contactField" layoutX="238.0" layoutY="181.0" />
-      <Label layoutX="120.0" layoutY="185.0" text="Contact Information:" />
-      <Label layoutX="120.0" layoutY="210.0" text="Insurance Information:" />
-      <Label layoutX="120.0" layoutY="280.0" text="Pharmacy Information:" />
-      <Button layoutX="286.0" layoutY="350.0" mnemonicParsing="false" onAction="#createPatient" text="Submit" />
-      <DatePicker fx:id="dobPicker" layoutX="239.0" layoutY="156.0" />
+      <TextField fx:id="nameField" layoutX="238.0" layoutY="126.0" />
+      <Label layoutX="195.0" layoutY="130.0" text="Name:" />
+      <Label layoutX="161.0" layoutY="155.0" text="Date of Birth:" />
+      <TextField fx:id="contactField" layoutX="238.0" layoutY="176.0" />
+      <Label layoutX="120.0" layoutY="180.0" text="Contact Information:" />
+      <Label layoutX="120.0" layoutY="205.0" text="Insurance Information:" />
+      <Label layoutX="120.0" layoutY="275.0" text="Pharmacy Information:" />
+      <Button layoutX="286.0" layoutY="350.0" mnemonicParsing="false" onAction="#createPatient" style="-fx-background-color: radial-gradient(radius 200%, blue, white, green)radial-gradient(radius 200%, blue, white, green);" text="Submit" />
+      <DatePicker fx:id="dobPicker" layoutX="239.0" layoutY="151.0" />
       <Label fx:id="errorMessage" alignment="CENTER" layoutX="116.0" layoutY="109.0" prefHeight="17.0" prefWidth="371.0" textFill="RED" />
-      <TextArea fx:id="insuranceField" layoutX="126.0" layoutY="227.0" prefHeight="53.0" prefWidth="326.0" wrapText="true" />
-      <TextArea fx:id="pharmacyField" layoutX="126.0" layoutY="297.0" prefHeight="53.0" prefWidth="326.0" wrapText="true" />
-      <Button fx:id="logOut" layoutX="514.0" layoutY="57.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <TextArea fx:id="insuranceField" layoutX="126.0" layoutY="222.0" prefHeight="53.0" prefWidth="326.0" wrapText="true" />
+      <TextArea fx:id="pharmacyField" layoutX="126.0" layoutY="292.0" prefHeight="53.0" prefWidth="326.0" wrapText="true" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Button fx:id="newPatient" layoutX="73.0" layoutY="80.0" mnemonicParsing="false" onAction="#goNewPatient" prefHeight="28.0" prefWidth="122.0" style="-fx-background-color: radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white)radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Patient" textAlignment="CENTER" />
+      <Button fx:id="newCheckup" layoutX="196.0" layoutY="80.0" mnemonicParsing="false" onAction="#goNewCheckup" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Checkup" textAlignment="CENTER" />
+      <Button fx:id="editInformation" layoutX="306.0" layoutY="80.0" mnemonicParsing="false" onAction="#goEditInformation" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen); -fx-border-color: &quot;black&quot; &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ) dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" styleClass="fx" text="View/Edit Information" />
+      <Button fx:id="messages" layoutX="442.0" layoutY="80.0" mnemonicParsing="false" onAction="#goMessages" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Messages" textAlignment="CENTER">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

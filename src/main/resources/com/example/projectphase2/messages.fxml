@@ -8,21 +8,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.Messages">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.Messages">
    <children>
-      <Button fx:id="newPatient" layoutX="108.0" layoutY="84.0" mnemonicParsing="false" onAction="#goNewPatient" text="New Patient" />
-      <Button fx:id="newCheckup" layoutX="189.0" layoutY="84.0" mnemonicParsing="false" onAction="#goNewCheckup" text="New Checkup" />
-      <Button fx:id="editInformation" layoutX="279.0" layoutY="84.0" mnemonicParsing="false" onAction="#goEditInformation" text="View/Edit Information" />
-      <Button fx:id="messages" layoutX="411.0" layoutY="84.0" mnemonicParsing="false" onAction="#goMessages" text="Messages" />
-      <Label layoutX="189.0" layoutY="14.0" text="Staff Portal">
+      <Button fx:id="newMessageButton" layoutX="69.0" layoutY="135.0" mnemonicParsing="false" onAction="#goNewMessage" style="-fx-background-color: radial-gradient(radius 200%, yellow, red,yellow) radial-gradient(radius 200%, yellow, red,yellow);" text="New Message" />
+      <ComboBox fx:id="subjectSelection" layoutX="175.0" layoutY="135.0" onAction="#updateMessageBox" prefHeight="25.0" prefWidth="212.0" promptText="Select Message" />
+      <TextArea fx:id="bodyDisplay" editable="false" layoutX="67.0" layoutY="180.0" prefHeight="170.0" prefWidth="482.0" promptText="Message body will display here" wrapText="true" />
+      <TextField fx:id="senderEmail" editable="false" layoutX="398.0" layoutY="135.0" promptText="Sender Email" />
+      <Label layoutX="191.0" layoutY="9.0" text="Staff Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="newMessageButton" layoutX="56.0" layoutY="129.0" mnemonicParsing="false" onAction="#goNewMessage" text="New Message" />
-      <ComboBox fx:id="subjectSelection" layoutX="167.0" layoutY="129.0" onAction="#updateMessageBox" prefHeight="25.0" prefWidth="212.0" promptText="Select Message" />
-      <TextArea fx:id="bodyDisplay" editable="false" layoutX="67.0" layoutY="167.0" prefHeight="200.0" prefWidth="467.0" promptText="Message body will display here" wrapText="true" />
-      <TextField fx:id="senderEmail" editable="false" layoutX="385.0" layoutY="129.0" promptText="Sender Email" />
-      <Button fx:id="logOut" layoutX="514.0" layoutY="57.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Button fx:id="newPatient" layoutX="73.0" layoutY="80.0" mnemonicParsing="false" onAction="#goNewPatient" prefHeight="28.0" prefWidth="122.0" style="-fx-background-color: radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white)radial-gradient(radius 200%, red, lightpink, white) radial-gradient(radius 200%, red, lightpink, white); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Patient" textAlignment="CENTER" />
+      <Button fx:id="newCheckup" layoutX="193.0" layoutY="80.0" mnemonicParsing="false" onAction="#goNewCheckup" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="New Checkup" textAlignment="CENTER" />
+      <Button fx:id="editInformation" layoutX="306.0" layoutY="80.0" mnemonicParsing="false" onAction="#goEditInformation" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen); -fx-border-color: &quot;black&quot; &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ) dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" styleClass="fx" text="View/Edit Information" />
+      <Button fx:id="messages" layoutX="442.0" layoutY="80.0" mnemonicParsing="false" onAction="#goMessages" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple); -fx-border-color: &quot;black&quot;; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Messages" textAlignment="CENTER">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

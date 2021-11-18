@@ -8,33 +8,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.PastVisits">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.PastVisits">
    <children>
-      <Label layoutX="158.0" layoutY="14.0" text="Patient Portal">
+      <ComboBox fx:id="CheckupSelection" layoutX="259.0" layoutY="116.0" onAction="#fillBoxes" prefWidth="150.0" promptText="Select Checkup ID" />
+      <Label layoutX="139.0" layoutY="159.0" text="Weight:" />
+      <TextField fx:id="weightBox" editable="false" layoutX="181.0" layoutY="155.0" />
+      <Label layoutX="115.0" layoutY="198.0" text="Height (FT):" />
+      <TextField fx:id="heightFTBox" editable="false" layoutX="181.0" layoutY="194.0" prefHeight="25.0" prefWidth="46.0" />
+      <Label layoutX="95.0" layoutY="238.0" text="Body Temperature:" />
+      <TextField fx:id="bTempBox" editable="false" layoutX="205.0" layoutY="234.0" prefHeight="25.0" prefWidth="125.0" />
+      <Label layoutX="93.0" layoutY="277.0" text="Blood Pressure (up):" />
+      <TextField fx:id="bPresUpBox" editable="false" layoutX="199.0" layoutY="273.0" prefHeight="25.0" prefWidth="46.0" />
+      <Label layoutX="379.0" layoutY="153.0" text="Doctor's Findings:" />
+      <Label layoutX="379.0" layoutY="241.0" text="Prescribed Medication:" />
+      <TextField fx:id="heightINBox" editable="false" layoutX="289.0" layoutY="194.0" prefHeight="25.0" prefWidth="46.0" />
+      <TextField fx:id="bPresLowBox" editable="false" layoutX="289.0" layoutY="273.0" prefHeight="25.0" prefWidth="46.0" />
+      <Label layoutX="252.0" layoutY="198.0" text="(IN):" />
+      <Label layoutX="255.0" layoutY="277.0" text="{low}:" />
+      <TextArea fx:id="docFindings" editable="false" layoutX="380.0" layoutY="170.0" prefHeight="56.0" prefWidth="149.0" wrapText="true" />
+      <TextArea fx:id="prescMeds" editable="false" layoutX="380.0" layoutY="258.0" prefHeight="56.0" prefWidth="149.0" wrapText="true" />
+      <Label layoutX="191.0" layoutY="9.0" text="Patient Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="patientInformation" layoutX="173.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPatientInformation" text="Patient Information" />
-      <Button fx:id="pastVisits" layoutX="292.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPastVisits" text="Past Visits" />
-      <Button fx:id="patientMessages" layoutX="361.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPatientMessages" text="Messages" />
-      <ComboBox fx:id="CheckupSelection" layoutX="211.0" layoutY="115.0" onAction="#fillBoxes" prefWidth="150.0" promptText="Select Checkup ID" />
-      <Label layoutX="60.0" layoutY="165.0" text="Weight:" />
-      <TextField fx:id="weightBox" editable="false" layoutX="102.0" layoutY="161.0" />
-      <Label layoutX="36.0" layoutY="204.0" text="Height (FT):" />
-      <TextField fx:id="heightFTBox" editable="false" layoutX="102.0" layoutY="200.0" prefHeight="25.0" prefWidth="46.0" />
-      <Label layoutX="16.0" layoutY="244.0" text="Body Temperature:" />
-      <TextField fx:id="bTempBox" editable="false" layoutX="126.0" layoutY="240.0" prefHeight="25.0" prefWidth="125.0" />
-      <Label layoutX="14.0" layoutY="283.0" text="Blood Pressure (up):" />
-      <TextField fx:id="bPresUpBox" editable="false" layoutX="120.0" layoutY="279.0" prefHeight="25.0" prefWidth="46.0" />
-      <Label layoutX="300.0" layoutY="159.0" text="Doctor's Findings:" />
-      <Label layoutX="300.0" layoutY="247.0" text="Prescribed Medication:" />
-      <TextField fx:id="heightINBox" editable="false" layoutX="210.0" layoutY="200.0" prefHeight="25.0" prefWidth="46.0" />
-      <TextField fx:id="bPresLowBox" editable="false" layoutX="210.0" layoutY="279.0" prefHeight="25.0" prefWidth="46.0" />
-      <Label layoutX="173.0" layoutY="204.0" text="(IN):" />
-      <Label layoutX="176.0" layoutY="283.0" text="{low}:" />
-      <TextArea fx:id="docFindings" editable="false" layoutX="301.0" layoutY="176.0" prefHeight="56.0" prefWidth="149.0" wrapText="true" />
-      <TextArea fx:id="prescMeds" editable="false" layoutX="301.0" layoutY="264.0" prefHeight="56.0" prefWidth="149.0" wrapText="true" />
-      <Button fx:id="logOut" layoutX="504.0" layoutY="47.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <Button fx:id="patientInformation" layoutX="192.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientInformation" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red) radial-gradient(radius 200%, orange, yellow, red);" text="Patient Information" />
+      <Button fx:id="pastVisits" layoutX="312.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPastVisits" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen);" text="Past Visits" />
+      <Button fx:id="patientMessages" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientMessages" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple) radial-gradient(radius 200%, blue, lightblue, purple);" text="Messages" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green) radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

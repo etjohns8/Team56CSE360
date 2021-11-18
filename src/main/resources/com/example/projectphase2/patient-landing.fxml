@@ -7,26 +7,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.PatientLanding">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectphase2.PatientLanding">
    <children>
-      <Label layoutX="158.0" layoutY="14.0" text="Patient Portal">
+      <TextField fx:id="firstnameBox" layoutX="268.0" layoutY="125.0" />
+      <Label layoutX="206.0" layoutY="129.0" text="First Name:" />
+      <Label layoutX="201.0" layoutY="195.0" text="Date of Birth:" />
+      <DatePicker fx:id="DOBField" layoutX="271.0" layoutY="191.0" />
+      <TextField fx:id="emailBox" layoutX="271.0" layoutY="226.0" />
+      <Label layoutX="236.0" layoutY="230.0" text="Email:" />
+      <TextField fx:id="lastnameBox" layoutX="271.0" layoutY="158.0" />
+      <Label layoutX="207.0" layoutY="162.0" text="Last Name:" />
+      <Button fx:id="submitEdits" layoutX="315.0" layoutY="272.0" mnemonicParsing="false" onAction="#submitChangesToDB" style="-fx-background-color: radial-gradient(radius 200%, blue, white, green)radial-gradient(radius 200%, blue, white, green) radial-gradient(radius 200%, blue, white, green)radial-gradient(radius 200%, blue, white, green);" text="Edit" />
+      <Label fx:id="outputMessage" alignment="CENTER" layoutX="208.0" layoutY="105.0" prefHeight="17.0" prefWidth="251.0" />
+      <Label layoutX="191.0" layoutY="9.0" text="Patient Portal">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="patientInformation" layoutX="173.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPatientInformation" text="Patient Information" />
-      <Button fx:id="pastVisits" layoutX="292.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPastVisits" text="Past Visits" />
-      <Button fx:id="patientMessages" layoutX="361.0" layoutY="84.0" mnemonicParsing="false" onAction="#goPatientMessages" text="Messages" />
-      <TextField fx:id="firstnameBox" layoutX="218.0" layoutY="167.0" />
-      <Label layoutX="156.0" layoutY="171.0" text="First Name:" />
-      <Label layoutX="151.0" layoutY="237.0" text="Date of Birth:" />
-      <DatePicker fx:id="DOBField" layoutX="221.0" layoutY="233.0" />
-      <TextField fx:id="emailBox" layoutX="221.0" layoutY="268.0" />
-      <Label layoutX="186.0" layoutY="272.0" text="Email:" />
-      <TextField fx:id="lastnameBox" layoutX="221.0" layoutY="200.0" />
-      <Label layoutX="157.0" layoutY="204.0" text="Last Name:" />
-      <Button fx:id="submitEdits" layoutX="266.0" layoutY="318.0" mnemonicParsing="false" onAction="#submitChangesToDB" text="Edit" />
-      <Label fx:id="outputMessage" alignment="CENTER" layoutX="175.0" layoutY="125.0" prefHeight="17.0" prefWidth="251.0" textFill="#00ff26" />
-      <Button fx:id="logOut" layoutX="494.0" layoutY="37.0" mnemonicParsing="false" onAction="#goLogOut" text="Log Out" />
+      <Button fx:id="patientInformation" layoutX="192.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientInformation" style="-fx-background-color: radial-gradient(radius 200%, orange, yellow, red) radial-gradient(radius 200%, orange, yellow, red);" text="Patient Information" />
+      <Button fx:id="pastVisits" layoutX="311.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPastVisits" style="-fx-background-color: radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen) radial-gradient(radius 200%, green, lightgreen, darkgreen);" text="Past Visits" />
+      <Button fx:id="patientMessages" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" onAction="#goPatientMessages" style="-fx-background-color: radial-gradient(radius 200%, blue, lightblue, purple) radial-gradient(radius 200%, blue, lightblue, purple);" text="Messages" />
+      <Button fx:id="logOut" layoutX="498.0" layoutY="32.0" mnemonicParsing="false" onAction="#goLogOut" style="-fx-background-color: radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green) radial-gradient(radius 200%, red, white, green)radial-gradient(radius 200%, red, white, green);" text="Log Out" />
+      <Label layoutX="24.0" layoutY="19.0" prefHeight="39.0" prefWidth="160.0" text="ASU Pediatrics">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
